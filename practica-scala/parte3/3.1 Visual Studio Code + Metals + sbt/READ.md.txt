@@ -1,0 +1,26 @@
+## 1. Estructura de Datos y Funciones Principales
+* **Colecciones paralelas:** 
+  * `jugadores` (`List[String]` con los nombres).
+  * `puntuaciones` (`Array[Int]` con los puntos correspondientes).
+* **Funciones lógicas desarrolladas:**
+  * `bust(puntuacion: Int)`: Evalúa si la puntuación supera 21 devolviendo un valor de tipo `Boolean`.
+  * `estadoMano(puntuacion: Int)`: Devuelve `"BUST"` o `"VALIDA"` como `String` utilizando expresiones `if/else` idiomáticas.
+  * `mejorMano(handA: Int, handB: Int)`: Compara dos manos aplicando las reglas del juego y devolviendo el entero ganador.
+* **Estadísticas de la ronda:** Uso de métodos de orden superior de las colecciones como `.count` y `.filter` para calcular totales y extraer la puntuación máxima válida de forma eficiente.
+
+---
+
+## 2. Comparativa: Recorrido con `while` frente a `foreach`
+
+En el desarrollo de la práctica, se exploraron distintas formas de iterar sobre las colecciones. A continuación se comparan brevemente los enfoques:
+
+* **¿Cuál necesita un contador explícito?**
+  * La versión con **`while`** requiere declarar manualmente un contador (ej. `var i = 0`) y encargarse de incrementarlo en cada iteración (`i = i + 1`) para evitar bucles infinitos.
+  * La versión con **`foreach`** (o métodos funcionales) **no necesita contador**, ya que el motor de la colección se encarga automáticamente de procesar los elementos de principio a fin.
+
+* **¿Cuál necesita una variable mutable para recorrer la colección?**
+  * El bucle **`while`** depende intrínsecamente de la mutabilidad de la variable del índice (`var i`) para avanzar por las posiciones del array u objeto.
+  * El enfoque **funcional/foreach** opera bajo principios de inmutabilidad y abstracción de control, delegando el recorrido interno sin exponer variables mutables de control de flujo.
+
+* **¿Cuál se aproxima más al estilo funcional presentado en el material del curso (Datacamp)?**
+  * La aproximación basada en **`foreach`** (y funciones de orden superior como `map`, `filter` y `count`) se alinea directamente con el **estilo funcional** promovido en los materiales de Datacamp. Prioriza la declaración de *qué* se quiere hacer con los datos por encima del *cómo* recorrerlos paso a paso de forma imperativa.
